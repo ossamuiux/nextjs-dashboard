@@ -3,6 +3,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "seed": "node -r dotenv/config ./scripts/seed.js",
     "start": "next start"
   },
   "dependencies": {
@@ -12,6 +13,7 @@
     "autoprefixer": "10.4.19",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "next": "15.0.0-rc.0",
     "next-auth": "5.0.0-beta.19",
     "postcss": "8.4.38",
@@ -32,6 +34,6 @@
     "prettier-plugin-tailwindcss": "^0.6.5"
   },
   "engines": {
-    "node": ">=20.12.0"
+    "node": ">=20.12.2"
   }
 }
