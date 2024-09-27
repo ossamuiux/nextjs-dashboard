@@ -83,21 +83,27 @@ export async function deleteInvoice(id: string) {
   }
 }
 
+// 로그인폼과 연결할 인증함수
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
 ) {
   try {
+    // 자격증명사용하여 로그인 시도
     await signIn('credentials', formData);
   } catch (error) {
+    // error객체가 AuthError의 인스턴스이면
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
+          // 잘못된 자격증명
           return 'Invalid credentials.';
         default:
+          // 그외의 오류(이메일, 비밀번호 틀린 경우)
           return 'Something went wrong.';
       }
     }
+    // 인증오류가 아닌경우 error객체 던짐
     throw error;
   }
 }
